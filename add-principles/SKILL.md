@@ -1,6 +1,6 @@
 ---
 name: add-principles
-description: 向项目 AGENTS.md 添加通用原则的交互式 Skill。自动检测项目状态、智能去重、计划预览、安全备份。
+description: 向项目 AGENTS.md 添加通用原则的交互式 Skill。自动检测项目状态、智能去重、计划预览。
 triggers:
   - 添加原则
   - 增加规范
@@ -111,7 +111,6 @@ python ~/.kimi/skills/add-principles/scripts/locate.py
 ════════════════════════════════════════════════════════
 
 目标文件：./AGENTS.md
-备份文件：将创建 AGENTS.md.bak.20240223
 
 | 原则 | 操作 | 规则数 | 说明 |
 |------|------|--------|------|
@@ -146,8 +145,7 @@ python ~/.kimi/skills/add-principles/scripts/locate.py
 
 ### Step 7: 执行添加
 
-1. **创建备份**：复制 `AGENTS.md` 为 `AGENTS.md.bak.YYYYMMDD`
-2. **按顺序添加**：根据确认的计划，逐个添加/替换原则
+1. **按顺序添加**：根据确认的计划，逐个添加/替换原则
 3. **格式保持**：
    - 原则之间使用 `---` 分隔
    - 保持原有缩进和列表格式
@@ -162,8 +160,6 @@ python ~/.kimi/skills/add-principles/scripts/locate.py
    新增原则：1 个（方案先行与需求澄清）
    替换原则：1 个（任务拆分与文件数量限制 → 替换"模块化开发"）
    跳过原则：1 个（测试规范 - 已存在）
-
-文件备份：AGENTS.md.bak.20240223
 ════════════════════════════════════════════════════════
 ```
 
@@ -187,7 +183,7 @@ python ~/.kimi/skills/add-principles/scripts/locate.py
 | `principles.md` 不存在 | 显示错误信息，告知可能原因和解决方案 |
 | `/init` 执行失败 | 提示初始化失败，建议手动执行 `/init` 后再试 |
 | 所有选中原则都已存在 | 提示"所有原则已同步，无需添加" |
-| AGENTS.md 写入失败 | 保留备份文件，告知手动操作步骤 |
+| AGENTS.md 写入失败 | 告知手动操作步骤 |
 | 原则内容冲突 | 高亮显示差异，提供替换/保留/合并选项 |
 | 用户取消操作 | 不做任何修改，正常退出 |
 
@@ -217,7 +213,7 @@ python ~/.kimi/skills/add-principles/scripts/locate.py
 
 ## 设计原则
 
-1. **安全第一**：修改前自动备份，失败时保留原文件
+1. **安全第一**：执行前用户确认，避免误操作
 2. **用户确认**：执行前展示计划，确认后再写入
 3. **智能去重**：语义分析重复，避免冗余添加
 4. **跨平台**：支持 macOS、Linux、Windows
