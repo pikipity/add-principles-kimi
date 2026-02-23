@@ -107,7 +107,7 @@
 ## 项目结构
 
 ```
-add-principles/
+add-principles-kimi/
 ├── AGENTS.md              # 本文件
 ├── README.md              # 用户说明
 └── add-principles/
